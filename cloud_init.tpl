@@ -13,6 +13,8 @@ runcmd:
   - snap refresh core
   # RocketChat Server のインストール
   - snap install rocketchat-server --channel=4.x/stable
+  # 独自ドメインなどチャットシステムに登録させたい場合には以下で記載できます。
+  # - snap set rocketchat-server siteurl=https://xxx.xxx.com/
   # iptablesでの設定
   - iptables -I INPUT -p tcp --dport 3000 -j ACCEPT
   - DEBIAN_FRONTEND=noninteractive apt-get install -y iptables-persistent
