@@ -14,7 +14,11 @@
 ### 事前準備
 - テナンシーやコンパートメントの ocid の内容を確認
     - テナンシーの確認コマンド
-        - oci iam tenancy get --tenancy-id $(oci iam compartment list --compartment-id-in-subtree true --all | jq -r '.data[0]."compartment-id"')
+        - oci iam tenancy get \
+  --tenancy-id $(oci iam compartment list --compartment-id-in-subtree true --all | jq -r '.data[0]."compartment-id"') \
+  --query 'data.id' \
+  --raw-output
+
     - 自身のコンパートメントの確認
         - マネージメントコンソールから調べる方法が良いかも
 - ssh-keygenで鍵の作成
